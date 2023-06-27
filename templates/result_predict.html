@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Prediksi Diabetes</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
+
+  <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container pt-5">
+
+		<div class="form-group">
+			<a href="/form_predict" class="btn btn-success">
+				<i class="fa fa-angle-double-left"></i> Kembali
+			</a>
+		</div>
+
+		{% if prediction_text == 'Anda terkena Diabetes' %}
+		<div class="alert alert-danger">
+			<h1>{{ prediction_text }}</h1>
+      <hr class="my-1">
+			<p>Hasil prediksi menunjukkan bahwa Anda terkena diabetes. Beberapa faktor yang mempengaruhi prediksi ini termasuk riwayat keluarga diabetes, kelebihan berat badan atau obesitas, gaya hidup tidak sehat, kebiasaan makan yang tidak seimbang, kurangnya aktivitas fisik, dan usia.</p>
+			<p>Rekomendasi dan Langkah-langkah yang dapat membantu mengelola dan mengendalikan risiko diabetes:</p>
+			<ol>
+				<li>	Konsultasi dengan Dokter</li>
+				<ul>
+				  <li>Segera berkonsultasi dengan dokter atau profesional kesehatan yang berpengalaman dalam pengelolaan diabetes, seperti Dokter spesialis penyakit dalam (Sp.PD).</li>
+				  <li>Jika anda memiliki kendala ketika ingin konsultasi secara langsung, anda bisa mengunjungi Halodoc untuk berkonsultasi secara online, dengan mengklik link
+				  <a href="https://www.halodoc.com/">disini</a></li>
+				</ul>
+				<li>	Pengelolaan Pola Makan</li>
+				<ul>
+				  <li>Konsumsilah makanan yang seimbang, termasuk sayuran, buah-buahan, biji-bijian, protein tanpa lemak, dan lemak sehat</li>
+				  <li>Perhatikan asupan karbohidrat, terutama karbohidrat olahan dan gula. Pilih sumber karbohidrat yang lebih kompleks seperti biji-bijian utuh.</li>
+				  <li>Perhatikan ukuran porsi makan dan jangan makan berlebihan</li>
+				</ul>
+				<li>	Aktivitas Fisik Teratur</li>
+				<ul>
+				  <li>Lakukan aktivitas fisik aerobik seperti berjalan cepat, berlari, bersepeda, atau berenang secara teratur</li>
+				  <li>Sertakan juga latihan kekuatan untuk memperkuat otot dan meningkatkan sensitivitas insulin</li>
+				  <li>Konsultasikan dengan dokter Anda sebelum memulai atau mengubah program latihan fisik Anda</li>
+				  </ul>
+			  </ol> 
+		</div>
+		{% else %}
+		<div class="alert alert-success">
+			<h1>{{ prediction_text }}</h1>
+			<hr class="my-1">
+			<p>Meskipun hasil prediksi menunjukkan bahwa Anda tidak terkena diabetes, ada beberapa faktor yang tetap memiliki pengaruh penting terhadap kesehatan Anda. Faktor-faktor ini meliputi usia, indeks massa tubuh (BMI), riwayat keluarga, riwayat kehamilan, dan gaya hidup. Mengelola faktor-faktor ini dengan baik dapat membantu mencegah risiko diabetes dan masalah kesehatan lainnya di masa depan. </p>
+			<p>Rekomendasi dan Langkah-langkah yang dapat membantu mencegah risiko diabetes:</p>
+			<ol>
+			  <li>	Pola Makan Sehat</li>
+			  <ul>
+				<li>Konsumsi makanan yang kaya serat, seperti sayuran, buah-buahan, biji-bijian, dan kacang-kacangan.</li>
+				<li>Batasi konsumsi makanan yang tinggi gula, lemak jenuh, dan makanan olahan</li>
+				<li>Perhatikan ukuran porsi makanan dan hindari makan berlebihan</li>
+				<li>Minimalkan konsumsi minuman manis, termasuk minuman bersoda dan jus buah yang mengandung tambahan gula.</li>
+			  </ul>
+			  <li>	Aktivitas Fisik Teratur</li>
+			  <ul>
+				<li>Lakukan aktivitas fisik aerobik seperti berjalan cepat, berlari, bersepeda, atau berenang setidaknya 150 menit per minggu</li>
+				<li>Gabung dengan program kebugaran atau olahraga yang Anda nikmati untuk menjaga keaktifan tubuh secara teratur.</li>
+				<li>Lakukan juga latihan kekuatan untuk memperkuat otot dan meningkatkan metabolisme.</li>
+			  </ul>
+			  <li>	Menjaga Berat Badan Sehat</li>
+			  <ul>
+				<li>Jika Anda kelebihan berat badan atau obesitas, upayakan untuk mengurangi berat badan secara bertahap melalui kombinasi pola makan sehat dan aktivitas fisik.</li>
+				<li>Konsultasikan dengan ahli gizi atau dokter untuk merencanakan program penurunan berat badan yang tepat bagi Anda.</li>
+				</ul>
+			</ol> 
+		</div>
+		{% endif %}
+		
+	</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html> 
